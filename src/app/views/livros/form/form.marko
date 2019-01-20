@@ -2,18 +2,21 @@
     <body>
         <h1>Cadastro de livros</h1>
         <form action="/livros" method="post">
-            <input type="hidden" id="id" name="id">
+            <div if(data.livro.id)>
+                <input type="hidden" name="_method" value="PUT">
+                <input type="hidden" id="id" name="id" value="${data.livro.id}">
+            </div>
             <div>
                 <label for="titulo">Título:</label>
-                <input type="text" id="titulo" name="titulo" placeholder="Nome do livro"/>
+                <input type="text" id="titulo" name="titulo" placeholder="Nome do livro" value="${data.livro.titulo}"/>
             </div>
             <div>
                 <label for="preco">Preço:</label>
-                <input type="text" id="preco" name="preco" placeholder="Preço"/>
+                <input type="text" id="preco" name="preco" placeholder="Preço" value="${data.livro.preco}"/>
             </div>
             <div>
                 <label for="descricao">Descrição:</label>
-                <textarea type="text" id="descricao" name="descricao" placeholder="Descrição"></textarea>
+                <textarea type="text" id="descricao" name="descricao" placeholder="Descrição">${data.livro.descricao}</textarea>
             </div>
             <input type="submit" value="Salvar" />
         </form>
